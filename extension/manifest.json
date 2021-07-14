@@ -1,0 +1,31 @@
+{
+    "manifest_version":     3,
+    "name": "My Extension",
+  "version": "1.0",
+  "action": {
+    "default_title": "testing",
+    "default_icon": {
+        "16": "/images/get_started16.png",
+        "32": "/images/get_started32.png",
+        "48": "/images/get_started48.png",
+        "128": "/images/get_started128.png"
+      }
+  },
+  "permissions": ["tabs", "declarativeContent","scripting","webRequest","declarativeNetRequest"],
+    "host_permissions": [
+      "*://*/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [ "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/aes.min.js" ],
+      "matches": [ "http://localhost:3000/*" ]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://localhost:3000/*"],
+      "js": ["contentScript.js"]
+    }
+  ]
+  
+}
